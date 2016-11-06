@@ -2,7 +2,18 @@
 @import '../../styles/vendor/scss/variables.md';
 
 .todo-app{
-  width: 50%;
+  .todo-filter{
+    text-align: center;
+    margin-bottom: 25px;
+    a {
+      padding: 15px;
+      font-size: 16px;
+      &.active {
+        border-bottom: solid 2px;
+        font-weight: 600;
+      }
+    }
+  }
   .todo-form{
     background-color: white;
     padding: 25px;
@@ -14,10 +25,9 @@
     li {
       &.todo.incomplete {
         .todo-status {
-          color: $warning;
-          background-color: $yellow-100;
+          background-color: $yellow-200;
           &:hover{
-            background-color: $yellow-200;
+            background-color: $yellow-300;
           }
         }
       }
@@ -26,10 +36,9 @@
           text-decoration: line-through;
         }
         .todo-status {
-          color: $success;
-          background-color: $green-100;
+          background-color: $green-200;
           &:hover{
-            background-color: $green-200;
+            background-color: $green-300;
           }
         }
       }
@@ -38,14 +47,13 @@
       border-bottom: 2px solid black;
       div {
         display: inline-block;
+        font-size: 22px;
         line-height: 22px;
         padding: 15px;
       }
       .delete-todo {
         float: right;
-        color: $danger;
         font-weight: 600;
-        font-size: 22px;
         cursor: pointer;
         background-color: $red-100;
         &:hover{
@@ -54,7 +62,6 @@
       }
       .todo-status {
         font-weight: 600;
-        font-size: 22px;
         cursor: pointer;
         float: right;
         padding-right: 15px;

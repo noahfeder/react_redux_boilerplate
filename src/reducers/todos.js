@@ -2,7 +2,12 @@ import {Map, fromJS} from 'immutable';
 
 import todo_reducer from './todo';
 
-import {EDIT_TODO_TEXT, CREATE_TODO, TOGGLE_TODO_COMPLETED_STATE} from '../constants/todosConstants';
+import {
+  EDIT_TODO_TEXT,
+  CREATE_TODO,
+  TOGGLE_TODO_COMPLETED_STATE,
+  DELETE_TODO
+} from '../constants/todosConstants';
 
 const initial_state = fromJS({
   'new_todo': {
@@ -22,8 +27,10 @@ const todos = (state = initial_state, action) => {
           text: '',
           is_complete: false
         }));
-    case EDIT_TODO_TEXT:
+    case DELETE_TODO:
+      return state.delete(action.todo_id);
     case TOGGLE_TODO_COMPLETED_STATE:
+    case EDIT_TODO_TEXT:
       return action.todo_id && state.get(action.todo_id) ?
         state.update(action.todo_id, todo => todo_reducer(todo, action)) :
         state;

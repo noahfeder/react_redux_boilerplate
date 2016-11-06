@@ -3,7 +3,7 @@ import React from 'react';
 export default ({todo, create_todo, edit_todo_text}) =>
 <div className='todo-form'>
   <div className='form-group'>
-    <label>Todo Text</label>
+    <label>Enter Todo Text</label>
     <input
       className='form-control'
       type="text"

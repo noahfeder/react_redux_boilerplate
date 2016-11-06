@@ -4,16 +4,19 @@ import {connect} from 'react-redux';
 
 import * as todosActions from '../../actions/todosActions';
 
-import TodoForm from './todoForm.jsx';
-import TodoList from './todoList.jsx';
+import TodoForm from './todoForm';
+import TodoList from './todoList';
+import TodoFilter from './todoFilter';
 
 import './todos.scss';
 
 const todosComponent = ({
-  todos,
-  create_todo,
-  edit_todo_text,
-  toggle_todo_completed_state
+    todos,
+    filter,
+    create_todo,
+    delete_todo,
+    edit_todo_text,
+    toggle_todo_completed_state
 }) =>
   <div className="todo-app">
     <TodoForm
@@ -21,22 +24,33 @@ const todosComponent = ({
       create_todo={create_todo}
       edit_todo_text={edit_todo_text}
     />
+    <TodoFilter filter={filter} />
     <TodoList
       todos={
         todos
           .filter((todo, todo_id) => todo_id !== 'new_todo')
+          .filter(todo =>
+            filter === 'all' ||
+            filter === 'incomplete' && !todo.get('is_complete') ||
+            filter === 'complete' && todo.get('is_complete'))
           .map((todo, todo_id) => todo.set('id', todo_id))
           .toList()
       }
       toggle_todo_completed_state={toggle_todo_completed_state}
+      filter={filter}
+      delete_todo={delete_todo}
     />
   </div>;
 
-const mapStateToProps = ({todos}) => ({todos});
+const mapStateToProps = ({todos}, {routeParams}) => ({
+  todos,
+  filter: routeParams.filter || 'all'
+});
 
 const mapDispatchToProps = dispatch => ({
     edit_todo_text: bindActionCreators(todosActions.edit_todo_text, dispatch),
     create_todo: bindActionCreators(todosActions.create_todo, dispatch),
+    delete_todo: bindActionCreators(todosActions.delete_todo, dispatch),
     toggle_todo_completed_state: bindActionCreators(todosActions.toggle_todo_completed_state, dispatch)
   });
 
