@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run clean && npm run build:webpack && npm run copydist",
     "copydist": ".\\node_modules\\.bin\\copy .\\src\\static\\* .\\dist\\",
-    "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
+    "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.dev.js",
     "start": "node server.js",
     "start:prod": "cross-env NODE_ENV=production node server.js",
     "clean": "rimraf dist"
@@ -16,6 +16,7 @@
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.0",
+    "babel-eslint": "^7.1.0",
     "babel-loader": "^6.2.7",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
@@ -23,6 +24,8 @@
     "copy": "^0.3.0",
     "cross-env": "^3.1.3",
     "css-loader": "^0.25.0",
+    "eslint": "^3.9.1",
+    "eslint-plugin-react": "^6.5.0",
     "node-libs-browser": "^1.0.0",
     "node-sass": "^3.10.1",
     "raw-loader": "^0.5.1",

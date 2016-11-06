@@ -1,3 +1,64 @@
-ul {
-  list-style: none;
+@import '../../styles/vendor/scss/variables';
+@import '../../styles/vendor/scss/variables.md';
+
+.todo-app{
+  width: 50%;
+  .todo-form{
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 50px;
+  }
+  ul {
+    list-style: none;
+    padding: 0px;
+    li {
+      &.todo.incomplete {
+        .todo-status {
+          color: $warning;
+          background-color: $yellow-100;
+          &:hover{
+            background-color: $yellow-200;
+          }
+        }
+      }
+      &.todo.complete {
+        .todo-text {
+          text-decoration: line-through;
+        }
+        .todo-status {
+          color: $success;
+          background-color: $green-100;
+          &:hover{
+            background-color: $green-200;
+          }
+        }
+      }
+      padding: 15px;
+      margin-bottom: 5px;
+      border-bottom: 2px solid black;
+      div {
+        display: inline-block;
+        line-height: 22px;
+        padding: 15px;
+      }
+      .delete-todo {
+        float: right;
+        color: $danger;
+        font-weight: 600;
+        font-size: 22px;
+        cursor: pointer;
+        background-color: $red-100;
+        &:hover{
+          background-color: $red-200;
+        }
+      }
+      .todo-status {
+        font-weight: 600;
+        font-size: 22px;
+        cursor: pointer;
+        float: right;
+        padding-right: 15px;
+      }
+    }
+  }
 }

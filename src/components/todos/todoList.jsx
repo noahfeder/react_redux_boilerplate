@@ -1,11 +1,21 @@
 import React from 'react';
 
-export default ({todos}) =>
+import TodoItem from './todoItem';
 
+const todoList = ({
+  todos,
+  toggle_todo_completed_state
+}) =>
 <div>
   <ul>
     {todos.map((todo) =>
-      <li key={todo.get('id')}>{todo.get('text')}</li>
+      <TodoItem
+        key = {todo.get('id')}
+        todo={todo}
+        toggle_todo_completed_state= {toggle_todo_completed_state}
+      />
     )}
   </ul>
-</div>
+</div>;
+
+export default todoList;

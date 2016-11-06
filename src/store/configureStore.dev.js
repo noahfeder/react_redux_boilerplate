@@ -1,4 +1,4 @@
-import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { persistState } from 'redux-devtools';
 import rootReducer from '../reducers';
 import createLogger from 'redux-logger';
@@ -18,10 +18,10 @@ const finalCreateStore = compose(
   )
 )(createStore);
 
-export default initialState => {
+export default initial_state => {
   const store = finalCreateStore(
     rootReducer,
-    initialState
+    initial_state
   );
 
   if (module.hot) {
