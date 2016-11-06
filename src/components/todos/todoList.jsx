@@ -4,7 +4,6 @@ import TodoItem from './todoItem';
 
 const todoList = ({
   todos,
-  filter,
   toggle_todo_completed_state,
   delete_todo
 }) =>

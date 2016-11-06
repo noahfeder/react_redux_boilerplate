@@ -17,30 +17,33 @@ const todosComponent = ({
     delete_todo,
     edit_todo_text,
     toggle_todo_completed_state
-}) =>
-  <div className="todo-app">
-    <TodoForm
-      todo={todos.get('new_todo')}
-      create_todo={create_todo}
-      edit_todo_text={edit_todo_text}
-    />
-    <TodoFilter filter={filter} />
-    <TodoList
-      todos={
-        todos
-          .filter((todo, todo_id) => todo_id !== 'new_todo')
-          .filter(todo =>
-            filter === 'all' ||
-            filter === 'incomplete' && !todo.get('is_complete') ||
-            filter === 'complete' && todo.get('is_complete'))
-          .map((todo, todo_id) => todo.set('id', todo_id))
-          .toList()
-      }
-      toggle_todo_completed_state={toggle_todo_completed_state}
-      filter={filter}
-      delete_todo={delete_todo}
-    />
-  </div>;
+}) => {
+  const filtered_todos = todos
+    .filter((todo, todo_id) => todo_id !== 'new_todo')
+    .filter(todo =>
+      filter === 'all' ||
+      filter === 'incomplete' && !todo.get('is_complete') ||
+      filter === 'complete' && todo.get('is_complete'))
+    .map((todo, todo_id) => todo.set('id', todo_id))
+    .toList();
+  return (
+    <div className="todo-app">
+      <TodoForm
+        todo={todos.get('new_todo')}
+        create_todo={create_todo}
+        edit_todo_text={edit_todo_text}
+      />
+      <TodoFilter filter={filter} />
+      <div>Showing {filtered_todos.size} / {todos.size - 1} todos:</div>
+      <TodoList
+        todos={filtered_todos}
+        toggle_todo_completed_state={toggle_todo_completed_state}
+        filter={filter}
+        delete_todo={delete_todo}
+      />
+    </div>
+  );
+};
 
 const mapStateToProps = ({todos}, {routeParams}) => ({
   todos,
