@@ -34,6 +34,14 @@ Each module also has its own sass stylesheet, I would recommend using a shared s
 
 Inside the index.jsx file is where you should map your state and actions to your props.
 
+## Building
+
+To build your prod files just run `npm run build`. This will create a dist folder that contains your dist files. You can serve them from here by running `npm run start:prod` however I recommend you do your own thing with regards to your prod server.
+
+## Testing
+
+TODO
+
 ## Philosophy
 
 This section is skippable enough, but I wanted to provide some justification for some of the decisions made in the code.
