@@ -31,4 +31,4 @@ export default initial_state => {
   }
 
   return store;
-}
+};

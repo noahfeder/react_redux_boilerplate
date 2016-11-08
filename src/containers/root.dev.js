@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import App from './app';
 import DevTools from './devTools';
-import {browserHistory} from 'react-router'
+import {browserHistory} from 'react-router';
 import { syncHistoryWithStore} from 'react-router-redux';
 
 const root = ({store}) => {
@@ -16,7 +16,7 @@ const root = ({store}) => {
         <DevTools />
       </div>
     </Provider>
-  )
-}
+  );
+};
 
-  export default root;
+export default root;
