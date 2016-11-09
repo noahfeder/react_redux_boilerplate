@@ -40,7 +40,7 @@ To build your prod files just run `npm run build`. This will create a dist folde
 
 ## Testing
 
-This repo is set up to enable a tdd style of development. the [enzyme](http://airbnb.io/enzyme/) test library is used for rendering and qurying. I recommend using the 'shallow' render method to ensure that you are only testing your individual components, and not its childrem.
+This repo is set up to enable a tdd style of development. the [enzyme](http://airbnb.io/enzyme/) test library is used for rendering and qurying. I recommend using the 'shallow' render method to ensure that you are only testing your individual components, and not its children.
 
 ## Philosophy
 
@@ -50,7 +50,7 @@ This section is skippable enough, but I wanted to provide some justification for
 
 Javascript [does not have classical inheritance](https://davidwalsh.name/javascript-objects) even though it now has a `class` keyword. Under the hood, what is happening when you use `class` is a complicated mess.The same complicated mess that js devs have been doing for years to try to shoehorn classical inheritance into a language that doesnt have it or need it.
 
-I dont like using `class` because I dont like using black boxes. If you feel comfortable using it, go nuts, let a hundred flowers blossom and all that, this boilerplate is not set up that way, there are severout out there that are, YMMV.
+I dont like using `class` because I dont like using black boxes. If you feel comfortable using it, go nuts, let a hundred flowers blossom and all that, this boilerplate is not set up that way, there are several alternatives out there and YMMV.
 
 As a resut, my componenets are not classes, they are, in fact (pure functions)[https://medium.com/@housecor/react-stateless-functional-components-nine-wins-you-might-have-overlooked-997b0d933dbc#.wv6imbw16]. This means that you give up a few things, the biggest two being lifecycle hooks, and state. I see this a win, redux is a state management tool, if you use redux, but also manage state in your components....why use redux? Lifecycle hooks is more ambiguous but I generally see them, in the wild, used as a shortcut or a hack way of doing something that could and should be handled in your render method.
 
