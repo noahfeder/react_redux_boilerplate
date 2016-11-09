@@ -40,7 +40,7 @@ To build your prod files just run `npm run build`. This will create a dist folde
 
 ## Testing
 
-TODO
+This repo is set up to enable a tdd style of development. the [enzyme](http://airbnb.io/enzyme/) test library is used for rendering and qurying. I recommend using the 'shallow' render method to ensure that you are only testing your individual components, and not its childrem.
 
 ## Philosophy
 

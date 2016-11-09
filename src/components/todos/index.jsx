@@ -10,7 +10,7 @@ import TodoFilter from './todoFilter';
 
 import './todos.scss';
 
-const todosComponent = ({
+export const unconnected_todos_component = ({
     todos,
     filter,
     create_todo,
@@ -51,13 +51,13 @@ const mapStateToProps = ({todos}, {routeParams}) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    edit_todo_text: bindActionCreators(todosActions.edit_todo_text, dispatch),
-    create_todo: bindActionCreators(todosActions.create_todo, dispatch),
-    delete_todo: bindActionCreators(todosActions.delete_todo, dispatch),
-    toggle_todo_completed_state: bindActionCreators(todosActions.toggle_todo_completed_state, dispatch)
-  });
+  edit_todo_text: bindActionCreators(todosActions.edit_todo_text, dispatch),
+  create_todo: bindActionCreators(todosActions.create_todo, dispatch),
+  delete_todo: bindActionCreators(todosActions.delete_todo, dispatch),
+  toggle_todo_completed_state: bindActionCreators(todosActions.toggle_todo_completed_state, dispatch)
+});
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(todosComponent);
+)(unconnected_todos_component);
